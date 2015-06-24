@@ -1,4 +1,4 @@
-matz
-====
+utilz
+=====
 
-Matz. Math helpers / functions / whatever that I use on my Canvas projects.
+Utilz. Math helpers / functions / whatever that I use on my Canvas projects at <http://carloscabo.com>.
