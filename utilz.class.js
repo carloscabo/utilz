@@ -62,6 +62,14 @@ utilz.radToDeg = function (rad) {
 utilz.degToRad = function (deg) {
   return deg * (Math.PI / 180);
 }
+utilz.fixRad = function(angle) {
+  angle = angle % (Math.PI*2);
+  return(((angle < 0) ? (angle + (Math.PI*2)) : (angle)));
+};
+utilz.fixDeg = function(angle) {
+  angle = angle % 360;
+  return(((angle < 0) ? (angle + 360) : (angle)));
+};
 
 /**
  * Calculates a number between two numbers at a specific increment.
@@ -77,6 +85,13 @@ utilz.degToRad = function (deg) {
  */
 utilz.lerp = function(value1, value2, amt) {
   return value1 + (value2 - value1) * amt;
+};
+// Same with a line (x, y)
+utilz.lineLerp = function(x1, y1, x2, y2, amt) {
+  var result = {
+  };
+  result.x = x1 + (x2 - x1) * amt;
+  result.y = y1 + (y2 - y1) * amt;
 };
 
 /**
@@ -189,6 +204,18 @@ utilz.dist = function() {
     dz = arguments[2] - arguments[5];
     return Math.sqrt(dx * dx + dy * dy + dz * dz);
   }
+};
+
+/**
+ * Returns angle in radians between 2 points
+ * @param  {[type]} x1 [description]
+ * @param  {[type]} y1 [description]
+ * @param  {[type]} x2 [description]
+ * @param  {[type]} y2 [description]
+ * @return {[type]}    [description]
+ */
+utilz.angleTo = function angleTo(x1, y1, x2, y2) {
+  return Math.atan2( y2-y1, x2-x1 );
 };
 
 // Duplicates an object
